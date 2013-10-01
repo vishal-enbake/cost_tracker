@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CostTracker</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+.navbar.navbar-inverse
+      .navbar-inner{:style => "background: #438EB9;"}
+        .container-fluid
+          %a.brand{:href => "/", :style => "color: #FFFFFF;"}
+            %small
+              %i.icon-leaf
+              Atomic Drop
+          - if current_user
+            .pull-right
+              = link_to "Logout", logout_path, :class => "brand pull-right", :style => "color: #FFFFFF;"
+          - else
+            .pull-right
+              %a.brand.pull-right{:href => new_user_session_path, :style => "color: #FFFFFF;"}
+                %small Sign In
+                
+<%= content_tag :div, :class => "navbar navbar-inverse" do %>
+<% end %>
+    = yield
+</body>
+</html>

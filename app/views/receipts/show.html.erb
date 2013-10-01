@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @receipt.name %>
+</p>
+
+<%= link_to 'Edit', edit_division_receipt_path(@division, @receipt) %> |
+<%= link_to 'Back', division_receipts_path(@division) %>

@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @division.name %>
+</p>
+<%= content_tag :div, :class => "span12" do%>
+	<%= content_tag :h3, "Invoices"%>
+	<%= content_tag :table, :class => "table table-bordered table-striped table-hover span6" do%>
+		<%@invoices.each do |invoice|%>
+			<%=content_tag :tr do%>
+				<%= content_tag :td do%>
+					<b><%= content_tag :label, "Name"%></b>
+				<% end %>
+				<%= content_tag :td do%>
+					<%= invoice.name %>
+				<% end %>
+			<% end %>
+			<%= content_tag :tr do%>
+				<%= content_tag :td do%>
+					<b><%= content_tag :label, "Amount"%></b>
+				<% end %>
+				<%= content_tag :td do%>
+					<%= invoice.amount %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= content_tag :div, :class => "span12" do%>
+		<%= link_to "Add Invoice", new_division_invoice_path(@division)%>
+	<% end %>
+<% end %>
+<%= content_tag :div, :class => "span12" do%>
+	<%= content_tag :h3, "Receipts"%>
+	<%= content_tag :table, :class => "table table-bordered table-striped table-hover span6" do%>
+		<%@receipts.each do |receipt|%>
+			<%=content_tag :tr do%>
+				<%= content_tag :td do%>
+					<b><%= content_tag :label, "Name"%></b>
+				<% end %>
+				<%= content_tag :td do%>
+					<%= receipt.name %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= content_tag :div, :class => "span12" do%>
+		<%= link_to "Add Receipt", new_division_receipt_path(@division)%>
+	<% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_project_division_path(@project, @division) %> |
+<%= link_to 'Back', project_divisions_path(@project) %>

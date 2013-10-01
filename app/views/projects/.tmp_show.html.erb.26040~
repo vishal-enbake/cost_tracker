@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+  <b><%= link_to "View Division", project_divisions_path(@project)%></b>
+</p>
+<p><%= link_to 'Add Division',  new_project_division_path(@project) %></p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

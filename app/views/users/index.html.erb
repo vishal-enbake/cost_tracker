@@ -1,0 +1,23 @@
+<%
+=begin
+%>
+<%=content_tag :div do%>
+	<%= content_tag :h1, "User's Project"%>
+	<%= content_tag :table, :class => "table table-bordered" do%>
+		<%= content_tag :tr do %>
+			<%= content_tag :th, "Project Name"%>
+			<%= content_tag :th, "Action"%>
+		<% end %>
+		<% @projects.each do |project|%>
+			<%= content_tag :tr do%>
+				<%= content_tag :td, project.name%>
+				<%= content_tag :td do %><%= link_to "View", project_path(project)%><% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= link_to "New Project", new_project_path%>
+<% end %>
+
+<%
+=end
+%>

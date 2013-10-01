@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CostTracker</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= content_tag :div, :class => "navbar navbar-inverse" do %>
+	<%= content_tag :div, :class => "navbar-inner"  do%>
+		<%= content_tag :div, :class => "container-fluid" do%>
+			<%= link_to "CostTracker", "/", :style => "color: #FFFFFF;", :class => "brand"%>
+			<% if user_signed_in?%>
+				<%= content_tag :div, :class => "pull-right" do%>
+					<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, :style => "color: #FFFFFF;", :class => "brand pull-right" %>
+				<% end %>
+			<% else %>
+				<%= content_tag :div, :class => "pull-right" do%>
+					<%= link_to 'Sign In', new_user_session_path, :class => "brand pull-right", :style => "color: #FFFFFF;" %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
+
+<%= content_tag :div, :class => "navbar" do%>
+	<%= content_tag :div, :class => "navbar-inner" do%>
+		<%= content_tag :ul, :class => "nav" do%>
+			<%= content_tag :li, (link_to "Dashboard", "#"), :class => "span2" %>
+			<%= content_tag :li, (link_to "People", "#"), :class => "span2" %>
+			<%= content_tag :li, (link_to "Estimates", "#"), :class => "span2" %>
+			<%= content_tag :li, (link_to "Projects", projects_path), :class => "#{controller_name}" == "projects" ? 'span3 active' : 'span3' %>
+			<%= content_tag :li, (link_to "Costings", "#"), :class => "span2" %>
+			<%= content_tag :li, (link_to "Calender", "#"), :class => "span2" %>
+		<% end %>
+	<% end %>
+<% end if user_signed_in?%>
+
+<%= content_tag :div, :class => "clearfix", :id => "main-content" do%>
+    <%= content_tag :div, :class => "clearfix", :id => "page-content" do%>
+		<%= yield %>
+	<% end %>
+<% end %>
+</body>
+</html>

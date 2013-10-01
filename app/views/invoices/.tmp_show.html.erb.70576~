@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @invoice.name %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @invoice.amount %>
+</p>
+
+<%= link_to 'Edit', edit_division_invoice_path(@division, @invoice) %> |
+<%= link_to 'Back', division_invoices_path(@division) %>

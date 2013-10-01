@@ -1,0 +1,62 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<%= content_tag :div, :class =>"container" do%>
+		<%= content_tag :div, :class => "row-fluid" do%>
+			<%= content_tag :div, :class => "span2" do%>
+				<%= content_tag :label, "Name"%>
+			<% end %>
+			<%= content_tag :div, :class => "span4" do%>
+				<%= f.text_field :name%>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, :class => "row-fluid" do%>
+			<%= content_tag :div, :class => "span2" do%>
+				<%= content_tag :label, "Client"%>
+			<% end %>
+			<%= content_tag :div, :class => "span4" do%>
+				<%= f.text_field :client%>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, :class => "row-fluid" do%>
+			<%= content_tag :div, :class => "span2" do%>
+				<%= content_tag :label, "Amount"%>
+			<% end %>
+			<%= content_tag :div, :class => "span4" do%>
+				<%= f.text_field :amount%>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, :class => "row-fluid" do%>
+			<%= content_tag :div, :class => "span2" do%>
+				<%= content_tag :label, "Start Date"%>
+			<% end %>
+			<%= content_tag :div, :class => "span4" do%>
+				<%= f.text_field :start_date, :placeholder => "dd-mm-yyyy", :class => "date_mask"%>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, :class => "row-fluid" do%>
+			<%= content_tag :div, :class => "span2" do%>
+				<%= content_tag :label, "Due Date"%>
+			<% end %>
+			<%= content_tag :div, :class => "span4" do%>
+				<%= f.text_field :due_date, :placeholder => "dd-mm-yyyy", :class => "date_mask"%>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, :class => "row-fluid" do%>
+			<%= content_tag :div, :class => "span2" do%>
+			<% end %>
+			<%= content_tag :div, :class => "span4 actions" do%>
+				<%= f.submit :class => "btn btn-mini btn-info"%>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>

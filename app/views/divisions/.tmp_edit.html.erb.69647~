@@ -1,0 +1,5 @@
+<h1>Editing division</h1>
+
+<%= render 'form' %>
+<%= link_to 'Show', [@project, @division] %> |
+<%= link_to 'Back', project_divisions_path(@project) %>
