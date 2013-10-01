@@ -43,7 +43,6 @@ class ProjectsController < ApplicationController
     params[:project].merge!(:user_id => current_user.id)
     @project = Project.new(params[:project])
     @project.divisions.build(:name => "Main Division")
-debugger
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
