@@ -29,10 +29,10 @@
 		<%= content_tag :ul, :class => "nav" do%>
 			<%= content_tag :li, (link_to "Dashboard", "#"), :class => "span2" %>
 			<%= content_tag :li, (link_to "People", "#"), :class => "span2" %>
-			<%= content_tag :li, (link_to "Estimates", "#"), :class => "span2" %>
+			<%= content_tag :li, (link_to "Estimates", "#"), :class => "span3" %>
 			<%= content_tag :li, (link_to "Projects", projects_path), :class => "#{controller_name}" == "projects" ? 'span3 active' : 'span3' %>
 			<%= content_tag :li, (link_to "Costings", "#"), :class => "span2" %>
-			<%= content_tag :li, (link_to "Calender", "#"), :class => "span2" %>
+			<%#= content_tag :li, (link_to "Calender", "#"), :class => "span2" %>
 		<% end %>
 	<% end %>
 <% end if user_signed_in?%>
